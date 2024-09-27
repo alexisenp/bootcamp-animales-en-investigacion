@@ -97,7 +97,7 @@ function agregarAnimalATabla(animal) {
     animalCard
         .querySelector('.reproducirSonido')
         .addEventListener('click', () => {
-            animal.reproducirSonido();
+            reproducirSonido(animal);
         });
 
     animalCard.querySelector('img').addEventListener('click', () => {
@@ -105,6 +105,30 @@ function agregarAnimalATabla(animal) {
     });
 
     animalesDiv.appendChild(animalCard);
+}
+
+function reproducirSonido(animal) {
+
+        switch (animal.nombre) {
+            case 'Leon':
+                animal.rugir();
+                break;
+            case 'Lobo':
+                animal.aullar();
+                break;
+            case 'Oso':
+                animal.grunir();
+                break;
+            case 'Serpiente':
+                animal.sisear();
+                break;
+            case 'Aguila':
+                animal.chillar();
+                break;
+            default:
+                console.error('Animal no reconocido');
+                return null;
+        }
 }
 
 function mostrarModal(animal) {
